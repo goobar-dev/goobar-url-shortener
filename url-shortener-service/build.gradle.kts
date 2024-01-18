@@ -5,6 +5,7 @@ val logback_version: String by project
 plugins {
     kotlin("jvm") version "1.9.22"
     id("io.ktor.plugin") version "2.3.7"
+    id("it.nicolasfarabegoli.conventional-commits") version "3.1.3"
 }
 
 group = "dev.goobar"
@@ -19,6 +20,17 @@ application {
 
 repositories {
     mavenCentral()
+}
+
+// accepted types: feat, fix, build, chore, ci, docs, style, refactor, perf, test, tmp
+// simplified commit format: 'type(scope): message'
+// example commit: 'feat(android): Added app widget'
+//
+// see https://www.conventionalcommits.org/en/v1.0.0/ for more details on conventional commits
+conventionalCommits {
+    types += listOf("tmp")
+    scopes += listOf("shortener-service", "android", "ios")
+    failureMessage = "The commit message does not meet the Conventional Commit standard"
 }
 
 dependencies {

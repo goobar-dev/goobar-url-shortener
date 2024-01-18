@@ -3,9 +3,9 @@ val kotlin_version: String by project
 val logback_version: String by project
 
 plugins {
-    kotlin("jvm") version "1.9.22"
-    id("io.ktor.plugin") version "2.3.7"
-    id("it.nicolasfarabegoli.conventional-commits") version "3.1.3"
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.ktor)
+    alias(libs.plugins.conventionalCommits)
 }
 
 group = "dev.goobar"
@@ -34,11 +34,10 @@ conventionalCommits {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-core-jvm")
-    implementation("io.ktor:ktor-server-call-logging-jvm")
-    implementation("io.ktor:ktor-server-default-headers-jvm")
-    implementation("io.ktor:ktor-server-netty-jvm")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    testImplementation("io.ktor:ktor-server-tests-jvm")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+
+    implementation(libs.bundles.ktor.server)
+    implementation(libs.logback.classic)
+
+    testImplementation(libs.ktor.server.tests)
+    testImplementation(libs.kotlin.test.junit)
 }

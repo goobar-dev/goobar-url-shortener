@@ -1,0 +1,31 @@
+[versions]
+jvmVersion = "17"
+kotlinVersion = "1.9.22"
+ktorVersion = "2.3.7"
+logbackVersion = "1.4.8"
+conventionalCommitsPluginVersion = "3.1.3"
+
+[libraries]
+
+ktor-server-core-jvm = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktorVersion"}
+ktor-server-defaultHeaders = { module = "io.ktor:ktor-server-default-headers-jvm", version.ref = "ktorVersion" }
+ktor-server-callLogging = { module = "io.ktor:ktor-server-call-logging-jvm", version.ref = "ktorVersion" }
+ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktorVersion" }
+ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktorVersion" }
+
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlinVersion" }
+
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logbackVersion" }
+
+[bundles]
+ktor-server = [
+    "ktor-server-core-jvm",
+    "ktor-server-defaultHeaders",
+    "ktor-server-callLogging",
+    "ktor-server-netty"
+]
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinVersion" }
+ktor = { id = "io.ktor.plugin", version.ref = "ktorVersion" }
+conventionalCommits = { id = "it.nicolasfarabegoli.conventional-commits", version.ref = "conventionalCommitsPluginVersion" }

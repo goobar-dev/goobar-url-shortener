@@ -4,6 +4,7 @@ val logback_version: String by project
 
 plugins {
     alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ktor)
     alias(libs.plugins.conventionalCommits)
 }

@@ -11,6 +11,9 @@ ktor-server-core-jvm = { module = "io.ktor:ktor-server-core-jvm", version.ref = 
 ktor-server-defaultHeaders = { module = "io.ktor:ktor-server-default-headers-jvm", version.ref = "ktorVersion" }
 ktor-server-callLogging = { module = "io.ktor:ktor-server-call-logging-jvm", version.ref = "ktorVersion" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktorVersion" }
+ktor-server-resources = { module = "io.ktor:ktor-server-resources", version.ref = "ktorVersion" }
+ktor-server-contentNegotiation = { module = "io.ktor:ktor-server-content-negotiation-jvm", version.ref = "ktorVersion" }
+ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json-jvm", version.ref = "ktorVersion" }
 ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktorVersion" }
 
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlinVersion" }
@@ -22,10 +25,14 @@ ktor-server = [
     "ktor-server-core-jvm",
     "ktor-server-defaultHeaders",
     "ktor-server-callLogging",
-    "ktor-server-netty"
+    "ktor-server-netty",
+    "ktor-server-resources",
+    "ktor-server-contentNegotiation",
+    "ktor-serialization-json"
 ]
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinVersion" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktorVersion" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinVersion" }
 conventionalCommits = { id = "it.nicolasfarabegoli.conventional-commits", version.ref = "conventionalCommitsPluginVersion" }
